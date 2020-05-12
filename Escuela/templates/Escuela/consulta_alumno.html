@@ -1,0 +1,32 @@
+﻿{% extends "Escuela/layout.html" %}
+
+{% block content %}
+
+<br>
+{% if user.is_authenticated %}
+
+<table class="table table-strip">
+    <thead>Nombre</thead>
+    <thead>Apellido Paterno</thead>
+    <thead>Apellido Materno</thead>
+    <thead>Curp</thead>
+    <thead>Matricula</thead>
+    {% for Alumno in lista_alumnos %}
+    <tr>
+        <td>
+            {{Alumno.nombre}}
+            {{Alumno.appaterno}}
+            {{Alumno.apmaterno}}
+            {{Alumno.curp}}
+            {{Alumno.matricula}}
+        </td>
+    </tr>
+</table>
+        
+    {% endfor %}
+{% else %}
+
+<p>No te registraste</p>
+
+{% endif %}
+{% endblock %}
